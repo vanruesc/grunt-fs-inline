@@ -33,7 +33,7 @@ grunt.loadNpmTasks("grunt-fs-inline");
 fsinline: {
   task1: {
     src: "src/script-a.js",
-    dest: "src/script.inlined.js"
+    dest: "src/script-a.inlined.js"
   },
   task2: {
     src: "src/script-b.js",
