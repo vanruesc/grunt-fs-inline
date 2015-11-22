@@ -9,18 +9,20 @@ module.exports = function(grunt) {
 		var fPath, rs, ws;
 		var f = this.data;
 
-		rs = fs.createReadStream(f.src);
 		fPath = f.src;
 
 		if(!grunt.file.exists(fPath)) {
 
-			grunt.log.warn("Source file \"" + filepath + "\" not found.");
+			next(new Error("Source file \"" + fPath + "\" not found."));
+
+		} else {
+
+			rs = fs.createReadStream(fPath);
+			tr = brfs(fPath);
+			ws = fs.createWriteStream(f.dest);
+			rs.pipe(tr).pipe(ws).on("finish", next);
 
 		}
-
-		tr = brfs(fPath);
-		ws = fs.createWriteStream(f.dest);
-		rs.pipe(tr).pipe(ws).on("finish", next);
 
 	});
 
