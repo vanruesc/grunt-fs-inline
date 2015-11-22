@@ -1,0 +1,52 @@
+{
+	"name": "grunt-fs-inline",
+	"version": "0.0.0",
+	"description": "A plugin that makes the brfs transform usable without browserify.",
+	"homepage": "https://github.com/vanruesc/grunt-fs-inline",
+	"main": "tasks/fs-inline.js",
+	"license": "Zlib",
+
+	"keywords": [
+		"gruntplugin",
+		"brfs",
+		"inline",
+		"fs"
+	],
+
+	"author": {
+		"name": "Raoul van Rüschen",
+		"email": "vanruesc@outlook.de"
+	},
+
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vanruesc/grunt-fs-inline.git"
+	},
+
+	"bugs": {
+		"url": "https://github.com/vanruesc/grunt-fs-inline/issues"
+	},
+
+	"engines": {
+		"node": ">= 0.8.0"
+	},
+
+	"scripts": {
+		"test": "grunt test"
+	},
+
+	"dependencies": {
+		"brfs": "x.x.x"
+	},
+
+	"devDependencies": {
+		"grunt-contrib-jshint": "0.9.x",
+		"grunt-contrib-clean": "0.5.x",
+		"grunt-contrib-nodeunit": "0.3.x",
+		"grunt": "0.4.x"
+	},
+
+	"peerDependencies": {
+		"grunt": "0.4.x"
+	}
+}
