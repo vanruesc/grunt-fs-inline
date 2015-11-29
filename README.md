@@ -29,16 +29,19 @@ grunt.loadNpmTasks("grunt-fs-inline");
 
 ## Usage
 
+Directories will be created if the don't exist.
+
 ```js
 fsinline: {
-  task1: {
-    src: "src/script-a.js",
-    dest: "src/script-a.inlined.js"
+  taskA: {
+    src: "src/a.js",
+    dest: "src/a.inlined.js"
   },
-  task2: {
-    src: "src/script-b.js",
-    dest: "src/script-b.inlined.js"
-  }
+  taskB: {
+    src: "src/b.js",
+    dest: "src/sub/dir/b.inlined.js"
+  },
+	...
 }
 ```
 

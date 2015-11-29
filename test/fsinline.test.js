@@ -12,11 +12,11 @@ exports.inline_fs = {
 
     test.expect(2);
 
-    var actual = grunt.file.read("test/inline/a.inlined.js");
+    var actual = grunt.file.read("test/inline/actual/a.js");
     var expected = grunt.file.read("test/expected/a");
     test.equal(actual, expected, "should inline external files correctly.");
 
-    actual = grunt.file.read("test/inline/b.inlined.js");
+    actual = grunt.file.read("test/inline/actual/b.js");
     expected = grunt.file.read("test/expected/b");
     test.equal(actual, expected, "should inline external files correctly.");
 

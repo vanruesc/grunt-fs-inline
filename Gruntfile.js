@@ -7,18 +7,18 @@ module.exports = function(grunt) {
 		},
 
 		clean: {
-			tests: ["test/inline/a.inlined.js"]
+			tests: ["test/inline/actual"]
 		},
 
 		// Configuration to be run and tested.
 		fsinline: {
-			task1: {
+			taskA: {
 				src: "test/inline/a.js",
-				dest: "test/inline/a.inlined.js"
+				dest: "test/inline/actual/a.js"
 			},
-			task2: {
+			taskB: {
 				src: "test/inline/b.js",
-				dest: "test/inline/b.inlined.js"
+				dest: "test/inline/actual/b.js"
 			}
 		},
 
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 
 	});
 
-	// The plugin task of this module.
+	// The implemented plugin task.
 	grunt.loadTasks("tasks");
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");
@@ -36,6 +36,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-nodeunit");
 
 	grunt.registerTask("default", ["jshint", "test"]);
-	grunt.registerTask("test", ["clean", "fsinline", "nodeunit"]);
+	grunt.registerTask("test", ["clean", "fsinline", "nodeunit", "clean"]);
 
 };
