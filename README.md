@@ -29,7 +29,7 @@ grunt.loadNpmTasks("grunt-fs-inline");
 
 ## Usage
 
-Directories will be created if the don't exist.
+Directories will be created if they don't exist.
 
 ```js
 fsinline: {
@@ -41,7 +41,7 @@ fsinline: {
     src: "src/b.js",
     dest: "src/sub/dir/b.inlined.js"
   },
-	...
+  ...
 }
 ```
 
