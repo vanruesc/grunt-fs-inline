@@ -57,13 +57,14 @@ fsinline: {
       n: 5,
       foo: function(x) { return x * 100; },
       obj: {x: {y: 666}}
-    }
+    },
+    append: "/** my footer or code snippet **/"
   },
   taskA: {
     options: {
       // Local options.
       brfs: { ... },
-      append: "/** my footer or code snippet **/"
+      append: ""
     },
     src: "src/*/a.js",
     dest: "**/a.inlined.js"
