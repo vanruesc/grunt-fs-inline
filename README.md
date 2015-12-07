@@ -46,7 +46,8 @@ fsinline: {
 
 
 ### Options
-You may provide brfs specific [options](https://github.com/substack/brfs#var-tr--brfsfile-opts) like so:
+Besides the [brfs specific options](https://github.com/substack/brfs#var-tr--brfsfile-opts), you may provide a footer 
+or a code snippet that will be appended to the inlined files.
 
 ```js
 fsinline: {
@@ -62,7 +63,7 @@ fsinline: {
     options: {
       // Local options.
       brfs: { ... },
-      append: "/** my footer or code snippet **/"
+      append: "/** my footer **/"
     },
     src: "src/*/a.js",
     dest: "**/a.inlined.js"
