@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 
 					rs = fs.createReadStream(f.src);
 					ts = brfs(f.src, options.brfs);
-					ws = fs.createWriteStream(f.dest, {flags: "a"});
+					ws = fs.createWriteStream(f.dest);
 					rs.pipe(ts).pipe(ws).on("finish", function(error) {
 
 						if(error) {
