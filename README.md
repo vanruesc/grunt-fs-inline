@@ -28,7 +28,6 @@ grunt.loadNpmTasks("grunt-fs-inline");
 
 
 ## Usage
-
 Directories will be created if they don't exist.
 
 ```js
@@ -46,10 +45,35 @@ fsinline: {
 ```
 
 
+### Options
+You may provide brfs specific [options](https://github.com/substack/brfs#var-tr--brfsfile-opts) like so:
+
+```js
+fsinline: {
+  options: {
+    // Global options.
+    brfs: {
+      n: 5,
+      foo: function(x) { return x * 100; },
+      obj: {x: {y: 666}}
+    }
+  },
+  taskA: {
+    options: {
+      // Local options.
+      brfs: { ... },
+      append: "/** my footer or code snippet **/"
+    },
+    src: "src/*/a.js",
+    dest: "**/a.inlined.js"
+  }
+}
+```
+
+
 ## Contributing
 Maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
 
 
 ## License
-Copyright (c) 2015 Raoul van Rüschen  
-Licensed under the Zlib license.
+[Zlib](https://github.com/vanruesc/stay/blob/master/LICENSE)

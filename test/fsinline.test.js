@@ -1,6 +1,6 @@
 var grunt = require("grunt");
 
-exports.inline_fs = {
+exports.fsinline = {
 
   setUp: function(done) {
 
@@ -8,7 +8,7 @@ exports.inline_fs = {
 
   },
 
-  inline: function(test) {
+  "compare actual with expected": function(test) {
 
     test.expect(2);
 

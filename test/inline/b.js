@@ -1,1 +1,1 @@
-var a = require("fs").readFileSync("test/inline/t.vert", "utf-8");
+var b = require("fs").readFileSync("test/inline/t.vert", "utf-8");

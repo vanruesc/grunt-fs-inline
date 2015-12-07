@@ -7,9 +7,14 @@ module.exports = function(grunt) {
 
 	grunt.registerMultiTask("fsinline", "Use the brfs transform without browserify.", function() {
 
+		var options = this.options({
+			brfs: null,
+			append: ""
+		});
+
 		var next = this.async();
 		var f = this.data;
-		var rs, ws;
+		var rs, ts, ws;
 
 		if(!grunt.file.exists(f.src)) {
 
@@ -26,9 +31,13 @@ module.exports = function(grunt) {
 				} else {
 
 					rs = fs.createReadStream(f.src);
-					tr = brfs(f.src);
-					ws = fs.createWriteStream(f.dest);
-					rs.pipe(tr).pipe(ws).on("finish", next);
+					ts = brfs(f.src, options.brfs);
+					ws = fs.createWriteStream(f.dest, {flags: "a"});
+					rs.pipe(ts).pipe(ws).on("finish", function() {
+
+						fs.appendFile(f.dest, options.append, next);
+
+					});
 
 				}
 

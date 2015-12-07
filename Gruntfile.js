@@ -12,11 +12,17 @@ module.exports = function(grunt) {
 
 		// Configuration to be run and tested.
 		fsinline: {
+			options: {
+				append: "export default a;"
+			},
 			taskA: {
 				src: "test/inline/a.js",
 				dest: "test/inline/actual/a.js"
 			},
 			taskB: {
+				options: {
+					append: "export default b;"
+				},
 				src: "test/inline/b.js",
 				dest: "test/inline/actual/b.js"
 			}
