@@ -33,9 +33,17 @@ module.exports = function(grunt) {
 					rs = fs.createReadStream(f.src);
 					ts = brfs(f.src, options.brfs);
 					ws = fs.createWriteStream(f.dest, {flags: "a"});
-					rs.pipe(ts).pipe(ws).on("finish", function() {
+					rs.pipe(ts).pipe(ws).on("finish", function(error) {
 
-						fs.appendFile(f.dest, options.append, next);
+						if(error) {
+
+							next(error);
+
+						} else {
+
+							fs.appendFile(f.dest, options.append, next);
+
+						}
 
 					});
 
