@@ -1,7 +1,7 @@
 # grunt-fs-inline 
 [![Build status](https://travis-ci.org/vanruesc/grunt-fs-inline.svg?branch=master)](https://travis-ci.org/vanruesc/grunt-fs-inline) 
-[![GitHub version](https://badge.fury.io/gh/vanruesc%2Fgrunt-fs-inline.svg)](http://badge.fury.io/gh/vanruesc%2Fgrunt-fs-inline) 
-[![npm version](https://badge.fury.io/js/grunt-fs-inline.svg)](http://badge.fury.io/js/grunt-fs-inline) 
+[![GitHub version](https://badge.fury.io/gh/vanruesc%2Fgrunt-fs-inline.svg)](https://badge.fury.io/gh/vanruesc%2Fgrunt-fs-inline) 
+[![npm version](https://badge.fury.io/js/grunt-fs-inline.svg)](https://badge.fury.io/js/grunt-fs-inline) 
 [![Dependencies](https://david-dm.org/vanruesc/grunt-fs-inline.svg?branch=master)](https://david-dm.org/vanruesc/grunt-fs-inline)
 
 This plugin enables you to use [brfs](https://github.com/substack/brfs) without browserify. It's useful if you just want to 
@@ -46,8 +46,8 @@ fsinline: {
 
 
 ### Options
-Besides the [brfs specific options](https://github.com/substack/brfs#var-tr--brfsfile-opts), you may also provide 
-strings that should be appended to the inlined files.
+Besides the [brfs specific options](https://github.com/substack/brfs#var-tr--brfsfile-opts), you may also append an 
+arbitrary text to the inlined files.
 
 ```js
 fsinline: {
@@ -64,10 +64,10 @@ fsinline: {
     options: {
       // Local options.
       brfs: { ... },
-      append: ""
+      append: "export default foo;"
     },
-    src: "src/*/a.js",
-    dest: "**/a.inlined.js"
+    src: "src/a.js",
+    dest: "src/a.inlined.js"
   }
 }
 ```
@@ -78,4 +78,4 @@ Maintain the existing coding style. Add unit tests for any new or changed functi
 
 
 ## License
-[Zlib](https://github.com/vanruesc/stay/blob/master/LICENSE)
+[Zlib](https://github.com/vanruesc/grunt-fs-inline/blob/master/LICENSE)
