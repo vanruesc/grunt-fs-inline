@@ -59,8 +59,8 @@ fsinline: {
 }
 ```
 
-The above configuration will create the sub directory __bar__ wherever files with the name __foo.js__ are found in __src__. The inlined version 
-of the source file will be written to a new file with the _same name_ in the created directory, because ```dest``` doesn't clearly specify a file name.
+The above configuration will create the sub directory __bar__ wherever files with the name __foo.js__ are found in __src__. The inlined version of 
+the source file will be written to a new file with the _same name_ in the created directory, because ```dest``` doesn't clearly specify a file name here.
 
 
 ### Options
