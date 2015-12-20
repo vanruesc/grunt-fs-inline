@@ -84,7 +84,8 @@ fsinline: {
     },
     src: "src/a.js",
     dest: "./a.inlined.js"
-  }
+  },
+  ...
 }
 ```
 
