@@ -83,7 +83,7 @@ fsinline: {
       append: null
     },
     src: "src/a.js",
-    dest: "src/a.inlined.js"
+    dest: "./a.inlined.js"
   }
 }
 ```
