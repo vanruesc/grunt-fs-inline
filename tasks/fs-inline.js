@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 
 			function check(next) {
 
-				next((f.dest !== null) ? null : new Error("No destination specified."));
+				next((f.dest !== null && f.dest.length > 0) ? null : new Error("No destination specified."));
 
 			},
 

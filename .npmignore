@@ -2,7 +2,6 @@ test
 
 Gruntfile.js
 grunt-cli.js
-README.md
 
 .travis.yml
 .jshintrc
