@@ -1,2 +1,1 @@
 var b = "#define EPSILON 1e-6";
-export default b;

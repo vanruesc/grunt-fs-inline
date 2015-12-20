@@ -1,0 +1,1 @@
+var b = require("fs").readFileSync(__dirname + "/t.vert", "utf-8");

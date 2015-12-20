@@ -1,5 +1,5 @@
 var a = {
 	b: {
-		c: require("fs").readFileSync("test/inline/s.frag", "utf-8")
+		c: require("fs").readFileSync(__dirname + "/s.frag", "utf-8")
 	}
 };

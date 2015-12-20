@@ -4,8 +4,8 @@
 [![npm version](https://badge.fury.io/js/grunt-fs-inline.svg)](https://badge.fury.io/js/grunt-fs-inline) 
 [![Dependencies](https://david-dm.org/vanruesc/grunt-fs-inline.svg?branch=master)](https://david-dm.org/vanruesc/grunt-fs-inline)
 
-This plugin enables you to use [brfs](https://github.com/substack/brfs) without browserify. It's useful if you just want to 
-inline external files like glsl shader code in some of your JavaScript files.
+This grunt plugin enables you to use [brfs](https://github.com/substack/brfs) without browserify. It's useful if you want to 
+inline external files like shader code in your JavaScript files.
 
 
 ## Getting Started
@@ -28,43 +28,59 @@ grunt.loadNpmTasks("grunt-fs-inline");
 
 
 ## Usage
-Directories will be created if they don't exist.
+Specify a source path ```src``` and a destination path ```dest```. __The destination is always relative to the source path.__ Directories 
+will be created if they don't exist. If you don't specify a clear file name with a file extension in ```dest```, then the name of the source 
+file will be used instead.
 
 ```js
 fsinline: {
   taskA: {
-    src: "src/a.js",
-    dest: "src/a.inlined.js"
+    src: "src/foo.js",
+    dest: "./foo.inlined.js"
   },
   taskB: {
-    src: "src/b.js",
-    dest: "src/sub/dir/b.inlined.js"
+    src: "src/foo.js",
+    dest: "../other/dir"
   },
   ...
 }
 ```
 
 
+### Glob
+You may use [glob patterns](https://github.com/isaacs/node-glob#glob-primer) in order to inline a bunch of files at once. 
+
+```js
+fsinline: {
+  task: {
+    src: "src/**/foo.js",
+    dest: "./bar"
+  }
+}
+```
+
+The above configuration will create the sub directory __bar__ wherever files with the name __foo.js__ are found in __src__. The inlined version 
+of the source file will be written to a new file with the _same name_ in the created directory, because ```dest``` doesn't clearly specify a file name.
+
+
 ### Options
-Besides the [brfs specific options](https://github.com/substack/brfs#var-tr--brfsfile-opts), you may also append an 
-arbitrary text to the inlined files.
+In addition to the underlying [brfs](https://github.com/substack/brfs#var-tr--brfsfile-opts) and [glob](https://github.com/isaacs/node-glob#options) 
+options, you may also append an arbitrary text to the inlined files.
 
 ```js
 fsinline: {
   options: {
     // Global options.
-    brfs: {
-      n: 5,
-      foo: function(x) { return x * 100; },
-      obj: {x: {y: 666}}
-    },
-    append: "/** my footer or code snippet **/"
+    brfs: { ... },
+    glob: { ... },
+    append: "export default foo;"
   },
   taskA: {
     options: {
       // Local options.
-      brfs: { ... },
-      append: "export default foo;"
+      brfs: null,
+      glob: null,
+      append: null
     },
     src: "src/a.js",
     dest: "src/a.inlined.js"

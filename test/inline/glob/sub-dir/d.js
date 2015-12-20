@@ -1,0 +1,1 @@
+var d = require("fs").readFileSync(__dirname + "/t.shader", "utf-8");

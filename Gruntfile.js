@@ -17,14 +17,21 @@ module.exports = function(grunt) {
 			},
 			taskA: {
 				src: "test/inline/a.js",
-				dest: "test/inline/actual/a.js"
+				dest: "./actual"
 			},
 			taskB: {
 				options: {
-					append: "export default b;"
+					append: null
 				},
-				src: "test/inline/b.js",
-				dest: "test/inline/actual/b.js"
+				src: "test/inline/*.glob.js",
+				dest: "./actual/b.js"
+			},
+			taskC: {
+				options: {
+					append: null
+				},
+				src: "test/inline/glob/*/*.js",
+				dest: "../../actual"
 			}
 		},
 
@@ -41,7 +48,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-nodeunit");
 
-	grunt.registerTask("default", ["jshint", "test"]);
-	grunt.registerTask("test", ["clean", "fsinline", "nodeunit", "clean"]);
+	grunt.registerTask("default", ["test"]);
+	grunt.registerTask("test", ["clean", "jshint", "fsinline", "nodeunit", "clean"]);
 
 };
