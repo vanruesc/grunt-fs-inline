@@ -1,6 +1,6 @@
 {
 	"name": "grunt-fs-inline",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A plugin that makes the brfs transform usable without browserify.",
 	"homepage": "https://github.com/vanruesc/grunt-fs-inline",
 	"main": "tasks/fs-inline.js",
@@ -39,7 +39,7 @@
 	"dependencies": {
 		"async-waterfall": "0.1.x",
 		"brfs": "1.4.x",
-		"glob": "6.0.x",
+		"glob": "7.0.x",
 		"mkdirp": "0.5.x"
 	},
 
