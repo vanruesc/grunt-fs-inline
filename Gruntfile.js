@@ -2,13 +2,11 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 
-		name: "fsinline",
-
 		date: grunt.template.today("mmm dd yyyy"),
 		pkg: grunt.file.readJSON("package.json"),
 
 		banner: "/**\n" +
-			" * <%= name %> v<%= pkg.version %> build <%= date %>\n" +
+			" * grunt-fs-inline v<%= pkg.version %> build <%= date %>\n" +
 			" * <%= pkg.homepage %>\n" +
 			" * Copyright <%= date.slice(-4) %> <%= pkg.author.name %>, <%= pkg.license %>\n" + 
 			" */\n",
@@ -52,7 +50,7 @@ module.exports = function(grunt) {
 		rollup: {
 			options: {
 				format: "cjs",
-				moduleName: "<%= name %>",
+				moduleName: "fsinline",
 				banner: "<%= banner %>",
 				globals: {
 					"async-waterfall": "waterfall",
@@ -69,7 +67,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: "tasks/fs-inline.js",
-				dest: "build/<%= name %>.js"
+				dest: "build/fs-inline.js"
 			}
 		},
 

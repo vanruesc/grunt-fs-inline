@@ -1,5 +1,5 @@
 /**
- * fsinline v0.1.3 build Feb 26 2016
+ * grunt-fs-inline v0.1.5 build Feb 26 2016
  * https://github.com/vanruesc/grunt-fs-inline
  * Copyright 2016 Raoul van Rüschen, Zlib
  */
