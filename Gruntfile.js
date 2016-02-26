@@ -2,7 +2,21 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 
+		name: "fsinline",
+
+		date: grunt.template.today("mmm dd yyyy"),
+		pkg: grunt.file.readJSON("package.json"),
+
+		banner: "/**\n" +
+			" * <%= name %> v<%= pkg.version %> build <%= date %>\n" +
+			" * <%= pkg.homepage %>\n" +
+			" * Copyright <%= date.slice(-4) %> <%= pkg.author.name %>, <%= pkg.license %>\n" + 
+			" */\n",
+
 		jshint: {
+			options: {
+				jshintrc: true
+			},
 			files: ["Gruntfile.js", "tasks/**/*.js", "<%= nodeunit.tests %>"]
 		},
 
@@ -35,6 +49,30 @@ module.exports = function(grunt) {
 			}
 		},
 
+		rollup: {
+			options: {
+				format: "cjs",
+				moduleName: "<%= name %>",
+				banner: "<%= banner %>",
+				globals: {
+					"async-waterfall": "waterfall",
+					"mkdirp": "mkdirp",
+					"glob": "glob",
+					"brfs": "brfs"
+				},
+				plugins: [
+					require("rollup-plugin-node-resolve")({
+						jsnext: true,
+						skip: ["async-waterfall", "mkdirp", "glob", "brfs"]
+					})
+				]
+			},
+			dist: {
+				src: "tasks/fs-inline.js",
+				dest: "build/<%= name %>.js"
+			}
+		},
+
 		nodeunit: {
 			tests: ["test/*.test.js"]
 		}
@@ -42,13 +80,15 @@ module.exports = function(grunt) {
 	});
 
 	// The implemented plugin task.
-	grunt.loadTasks("tasks");
+	grunt.loadTasks("build");
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-nodeunit");
+	grunt.loadNpmTasks("grunt-rollup");
 
 	grunt.registerTask("default", ["test"]);
-	grunt.registerTask("test", ["clean", "jshint", "fsinline", "nodeunit", "clean"]);
+	grunt.registerTask("build", ["jshint", "rollup", "fsinline"]);
+	grunt.registerTask("test", ["clean", "build", "nodeunit", "clean"]);
 
 };
