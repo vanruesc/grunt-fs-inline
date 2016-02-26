@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 			options: {
 				jshintrc: true
 			},
-			files: ["Gruntfile.js", "tasks/**/*.js", "<%= nodeunit.tests %>"]
+			files: ["Gruntfile.js", "src/**/*.js", "<%= nodeunit.tests %>"]
 		},
 
 		clean: {
@@ -66,8 +66,8 @@ module.exports = function(grunt) {
 				]
 			},
 			dist: {
-				src: "tasks/fs-inline.js",
-				dest: "build/fs-inline.js"
+				src: "src/fs-inline.js",
+				dest: "tasks/fs-inline.js"
 			}
 		},
 
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 	});
 
 	// The implemented plugin task.
-	grunt.loadTasks("build");
+	grunt.loadTasks("tasks");
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-clean");

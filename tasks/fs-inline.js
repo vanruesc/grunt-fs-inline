@@ -1,11 +1,21 @@
-import waterfall from "async-waterfall";
-import mkdirp from "mkdirp";
-import glob from "glob";
-import brfs from "brfs";
-import path from "path";
-import fs from "fs";
+/**
+ * grunt-fs-inline v0.1.6 build Feb 26 2016
+ * https://github.com/vanruesc/grunt-fs-inline
+ * Copyright 2016 Raoul van Rüschen, Zlib
+ */
 
-export default function(grunt) {
+'use strict';
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var waterfall = _interopDefault(require('async-waterfall'));
+var mkdirp = _interopDefault(require('mkdirp'));
+var glob = _interopDefault(require('glob'));
+var brfs = _interopDefault(require('brfs'));
+var path = _interopDefault(require('path'));
+var fs = _interopDefault(require('fs'));
+
+function fsInline(grunt) {
 
 	grunt.registerMultiTask("fsinline", "Use the brfs transform without browserify.", function() {
 
@@ -131,3 +141,5 @@ export default function(grunt) {
 	});
 
 }
+
+module.exports = fsInline;
