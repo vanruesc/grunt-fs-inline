@@ -1,6 +1,5 @@
 # grunt-fs-inline 
 [![Build status](https://travis-ci.org/vanruesc/grunt-fs-inline.svg?branch=master)](https://travis-ci.org/vanruesc/grunt-fs-inline) 
-[![GitHub version](https://badge.fury.io/gh/vanruesc%2Fgrunt-fs-inline.svg)](https://badge.fury.io/gh/vanruesc%2Fgrunt-fs-inline) 
 [![npm version](https://badge.fury.io/js/grunt-fs-inline.svg)](https://badge.fury.io/js/grunt-fs-inline) 
 [![Dependencies](https://david-dm.org/vanruesc/grunt-fs-inline.svg?branch=master)](https://david-dm.org/vanruesc/grunt-fs-inline)
 
